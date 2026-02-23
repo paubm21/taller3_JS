@@ -1,24 +1,61 @@
-export function showPokemon(pokemon) {
-
-if (!pokemon) return;
-
-// Datos del Pokémon
-document.getElementById("pokemon-img").src = pokemon.sprite;
-document.getElementById("pokemon-name").textContent = capitalize(pokemon.name);
-document.getElementById("pokemon-id").textContent = "#" + pokemon. id.toString().padStart(3, "0");
-
-// Tipos
-const typesDiv = document.querySelector(".types");
-typesDiv.innerHTML = "";
-pokemon. types.forEach(t => {
-const span = document.createElement("span");
-span.classList.add("type", t);
-span.textContent = capitalize(t);
-typesDiv.appendChild(span);
-
-});
-}
+// Función para capitalizar la primera letra de una palabra
 function capitalize(word) {
-return word.charAt(0).toUpperCase() + word.slice(1);
-    
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+// Muestra los datos básicos del Pokémon en la card principal
+export function showPokemon(pokemon) {
+  if (!pokemon) return;
+
+  // Datos del Pokémon en la card
+  document.getElementById("pokemon-img").src = pokemon.sprite;
+  document.getElementById("pokemon-name").textContent = capitalize(pokemon.name);
+  document.getElementById("pokemon-id").textContent = "#" + pokemon.id.toString().padStart(3, "0");
+
+  // Tipos: limpiamos y generamos dinámicamente
+  const typesDiv = document.querySelector(".types");
+  typesDiv.innerHTML = "";
+  pokemon.types.forEach(t => {
+    const span = document.createElement("span");
+    span.classList.add("type", t); // clase .type + clase del tipo (ej: .electric)
+    span.textContent = capitalize(t);
+    typesDiv.appendChild(span);
+  });
+
+  // Al hacer clic en la imagen, abrir el modal
+  document.getElementById("pokemon-img").onclick = () => showModal(pokemon);
+}
+
+// Muestra el modal con información detallada del Pokémon
+export function showModal(pokemon) {
+  // Rellenamos los campos del modal
+  document.getElementById("modal-name").textContent = capitalize(pokemon.name);
+  document.getElementById("modal-img").src = pokemon.sprite;
+  document.getElementById("modal-id").textContent = "#" + pokemon.id.toString().padStart(3, "0");
+  document.getElementById("modal-height").textContent = pokemon.height;
+  document.getElementById("modal-weight").textContent = pokemon.weight;
+  document.getElementById("modal-abilities").textContent = pokemon.abilities.map(capitalize).join(", ");
+
+  // Estadísticas dinámicas
+  const statsDiv = document.getElementById("modal-stats");
+  statsDiv.innerHTML = "<h3>Estadísticas</h3>";
+
+  pokemon.stats.forEach(s => {
+    // Porcentaje máximo 255 (máximo posible en stats de Pokémon)
+    const pct = Math.min((s.base / 255) * 100, 100);
+
+    const row = document.createElement("div");
+    row.classList.add("stat-row");
+    row.innerHTML = `
+      <span>${capitalize(s.stat)}</span>
+      <div class="stat-bar">
+        <div class="stat-fill" style="width: ${pct}%"></div>
+      </div>
+      <span>${s.base}</span>
+    `;
+    statsDiv.appendChild(row);
+  });
+
+  // Mostrar el modal quitando la clase hidden
+  document.getElementById("pokemon-modal").classList.remove("hidden");
 }

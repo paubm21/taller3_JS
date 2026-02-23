@@ -1,0 +1,267 @@
+/* ===== Reset y base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #1a1a2e; /* fondo oscuro azul */
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== Contenedor principal ===== */
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.title {
+  font-size: 2rem;
+  color: #e94560; /* acento rojo */
+  letter-spacing: 2px;
+}
+
+/* ===== Card principal ===== */
+.card {
+  background-color: #16213e; /* card azul oscuro */
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(233, 69, 96, 0.3);
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 340px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover en la card */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(233, 69, 96, 0.5);
+}
+
+/* ===== Imagen del Pokémon ===== */
+#pokemon-img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 4px 8px rgba(233,69,96,0.4));
+}
+
+#pokemon-img:hover {
+  transform: scale(1.1); /* zoom in */
+}
+
+/* ===== Nombre e ID ===== */
+#pokemon-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+#pokemon-id {
+  font-size: 1rem;
+  color: #a0aec0;
+  letter-spacing: 1px;
+}
+
+/* ===== Tipos ===== */
+.types {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Estilo base de cada tipo */
+.type {
+  padding: 5px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+/* ===== Colores por tipo ===== */
+.type.normal   { background: #bdbdbd; color: #000; }
+.type.electric { background: #f7d02c; color: #000; }
+.type.fire     { background: #ee8130; }
+.type.ground   { background: #833900; }
+.type.rock     { background: #e9d45f; color: #000; }
+.type.water    { background: #6390f0; }
+.type.grass    { background: #7ac74c; }
+.type.bug      { background: #729f3f; }
+.type.flying   { background: #3dc7ef; }
+.type.ice      { background: #9be0ff; color: #000; }
+.type.poison   { background: #9e0a72; }
+.type.fairy    { background: #ff87db; }
+.type.fighting { background: #d33333; }
+.type.psychic  { background: #aa0080; }
+.type.steel    { background: #616161; }
+.type.ghost    { background: #313d70; }
+.type.dark     { background: #222222; }
+.type.dragon   { background: #3f23bb; }
+
+/* ===== Botones de navegación ===== */
+.nav-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.nav-buttons button {
+  background-color: #e94560;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-buttons button:hover {
+  background-color: #c73652;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(233, 69, 96, 0.5);
+}
+
+.nav-buttons button:active {
+  transform: scale(0.97);
+}
+
+/* ===== MODAL ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  transition: opacity 0.3s ease;
+}
+
+/* Ocultar modal */
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #16213e;
+  border-radius: 20px;
+  padding: 30px;
+  width: 420px;
+  max-width: 95vw;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 32px rgba(233, 69, 96, 0.4);
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* Botón cerrar modal */
+#close-modal {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #a0aec0;
+  transition: color 0.2s;
+}
+
+#close-modal:hover {
+  color: #e94560;
+}
+
+#modal-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+#modal-img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(233,69,96,0.4));
+}
+
+/* Info: altura, peso, habilidades */
+.modal-info {
+  width: 100%;
+  background: #0f3460;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #cbd5e0;
+}
+
+.modal-info strong {
+  color: #e94560;
+}
+
+/* ===== Stats ===== */
+.modal-stats {
+  width: 100%;
+}
+
+.modal-stats h3 {
+  font-size: 1rem;
+  color: #e94560;
+  margin-bottom: 10px;
+}
+
+/* Fila de stat */
+.stat-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 40px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  color: #cbd5e0;
+}
+
+/* Barra de stat */
+.stat-bar {
+  background: #2d3748;
+  border-radius: 10px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.stat-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #e94560, #f7d02c);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
