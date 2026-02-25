@@ -5,11 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mini Pokédex</title>
 
-  <!-- Fuente manuscrita -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./src/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fuente del título -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+
+  <!-- Fuentes del modal y textos -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./src/css/styles.css" />
 </head>
 <body>
 
@@ -21,17 +27,18 @@
       <h1 id="pokemon-name"></h1>
       <p id="pokemon-id"></p>
       <div class="types"></div>
-      <div class="nav-buttons">
-  <button class="nav-btn prev" type="button" aria-label="Ir al Pokémon anterior">
-    <span class="icon" aria-hidden="true">←</span>
-    <span class="label">Anterior</span>
-  </button>
 
-  <button class="nav-btn next" type="button" aria-label="Ir al siguiente Pokémon">
-    <span class="label">Siguiente</span>
-    <span class="icon" aria-hidden="true">→</span>
-  </button>
-</div>
+      <div class="nav-buttons">
+        <button class="nav-btn prev" type="button" aria-label="Ir al Pokémon anterior">
+          <span class="icon" aria-hidden="true">←</span>
+          <span class="label">Anterior</span>
+        </button>
+
+        <button class="nav-btn next" type="button" aria-label="Ir al siguiente Pokémon">
+          <span class="label">Siguiente</span>
+          <span class="icon" aria-hidden="true">→</span>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -39,15 +46,31 @@
   <div id="pokemon-modal" class="modal hidden">
     <div class="modal-content">
       <span id="close-modal">&times;</span>
-      <h2 id="modal-name"></h2>
-      <img id="modal-img" src="" alt="pokemon grande" />
-      <p id="modal-id" class="pokemon-id"></p>
-      <div class="modal-info">
-        <p><strong>Altura:</strong> <span id="modal-height"></span> m</p>
-        <p><strong>Peso:</strong> <span id="modal-weight"></span> kg</p>
-        <p><strong>Habilidades:</strong> <span id="modal-abilities"></span></p>
+
+      <!-- ✅ Título centrado arriba (para ambas columnas) -->
+      <h2 id="modal-name" class="modal-title"></h2>
+
+      <!-- ✅ Cuerpo horizontal -->
+      <div class="modal-body">
+
+        <!-- ✅ Izquierda: imagen + id + info -->
+        <div class="modal-left">
+          <img id="modal-img" src="" alt="pokemon grande" />
+          <p id="modal-id" class="pokemon-id"></p>
+
+          <div class="modal-info">
+            <p><strong>Altura:</strong> <span id="modal-height"></span> m</p>
+            <p><strong>Peso:</strong> <span id="modal-weight"></span> kg</p>
+            <p><strong>Habilidades:</strong> <span id="modal-abilities"></span></p>
+          </div>
+        </div>
+
+        <!-- ✅ Derecha: stats -->
+        <div class="modal-right">
+          <div id="modal-stats" class="modal-stats"></div>
+        </div>
+
       </div>
-      <div id="modal-stats" class="modal-stats"></div>
     </div>
   </div>
 

@@ -6,13 +6,16 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  /* ✅ fuente bonita global */
+  font-family: 'Poppins', sans-serif;
+
   /* Pueblo Paleta / ruta de Kanto */
-background-image: url('https://www.pokemon.com/static-assets/content-assets/cms2/img/misc/virtual-backgrounds/masters/city.jpg');
-background-size: cover;
+  background-image: url('https://www.pokemon.com/static-assets/content-assets/cms2/img/misc/virtual-backgrounds/masters/city.jpg');
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+
   color: #fff;
   min-height: 100vh;
   display: flex;
@@ -28,6 +31,7 @@ background-size: cover;
   gap: 20px;
 }
 
+/* ===== TÍTULO ===== */
 .title {
   font-family: "Rubik Wet Paint", system-ui;
   font-size: 3.6rem;
@@ -41,18 +45,24 @@ background-size: cover;
   /* contorno claro suave para separar del fondo */
   -webkit-text-stroke: 6px rgba(255, 255, 255, 0.85);
 
-  /* sombra elegante (no exagerada) */
+  /* sombra elegante */
   text-shadow:
     0 10px 25px rgba(0,0,0,0.35),
     0 2px 0 rgba(255,255,255,0.25);
 
-  /* animación suave */
-  animation: titlePop 700ms cubic-bezier(.2,.9,.2,1) both;
+  /* ✅ entra y luego flota SIEMPRE */
+  animation: titlePop 700ms cubic-bezier(.2,.9,.2,1) both, titleFloat 4s ease-in-out infinite;
 }
 
 @keyframes titlePop {
   from { transform: translateY(-18px) scale(0.96); opacity: 0; }
   to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes titleFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
 }
 
 /* ===== Card principal ===== */
@@ -94,6 +104,7 @@ background-size: cover;
 
 /* ===== Nombre e ID ===== */
 #pokemon-name {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.8rem;
   font-weight: 700;
   text-transform: capitalize;
@@ -159,14 +170,14 @@ background-size: cover;
   border: none;
   border-radius: 14px;
   padding: 12px 16px;
-  min-height: 48px;           /* tamaño mínimo táctil */
+  min-height: 48px; /* tamaño mínimo táctil */
   width: 100%;
   cursor: pointer;
 
   background-color: #e94560;
   color: #fff;
 
-  display: inline-flex;        /* alinea flecha y texto */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
@@ -204,14 +215,12 @@ background-size: cover;
 /* Empuja el “sentido” */
 .nav-btn.prev { justify-content: flex-start; }
 .nav-btn.next { justify-content: flex-end; }
-.nav-buttons button:hover {
-  background-color: #c73652;
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(233, 69, 96, 0.5);
-}
 
+/* ✅ IMPORTANTE: eliminamos el hover duplicado que peleaba con nav-btn */
+.nav-buttons button:hover,
 .nav-buttons button:active {
-  transform: scale(0.97);
+  transform: none;
+  box-shadow: none;
 }
 
 /* ===== MODAL ===== */
@@ -230,26 +239,48 @@ background-size: cover;
   display: none;
 }
 
+/* ===== MODAL LAYOUT NUEVO ===== */
+
 .modal-content {
-  background: rgba(22, 33, 62, 0.75);
+  background: rgba(22, 33, 62, 0.85);
   backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255,255,255,0.15);
   border-radius: 20px;
-  padding: 30px;
-  width: 420px;
+  padding: 40px;
+  width: 800px;
   max-width: 95vw;
-  max-height: 85vh;
+  max-height: 90vh;
   overflow-y: auto;
   position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  animation: popIn 0.3s ease;
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 25px;
+}
+/* Contenedor horizontal interno */
+.modal-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Lado izquierdo */
+.modal-left {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-  animation: popIn 0.3s ease;
+  gap: 20px;
 }
 
+/* Lado derecho */
+.modal-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 @keyframes popIn {
   from { transform: scale(0.8); opacity: 0; }
   to   { transform: scale(1);   opacity: 1; }
@@ -271,10 +302,17 @@ background-size: cover;
 }
 
 #modal-name {
-  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
   font-weight: 700;
-  text-transform: capitalize;
-  color: #fff;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+#modal-id {
+  font-family: 'Poppins', sans-serif;
+  color: #cbd5e0;
+  letter-spacing: 1px;
 }
 
 #modal-img {
@@ -293,12 +331,15 @@ background-size: cover;
   display: flex;
   flex-direction: column;
   gap: 6px;
-  font-size: 0.9rem;
-  color: #cbd5e0;
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: #e2e8f0;
 }
 
 .modal-info strong {
-  color: #e94560;
+  color: #ff4d6d;
+  font-weight: 600;
 }
 
 /* ===== Stats ===== */
@@ -307,8 +348,9 @@ background-size: cover;
 }
 
 .modal-stats h3 {
-  font-size: 1rem;
-  color: #e94560;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  color: #ff4d6d;
   margin-bottom: 10px;
 }
 
@@ -319,8 +361,12 @@ background-size: cover;
   align-items: center;
   gap: 8px;
   margin-bottom: 6px;
-  font-size: 0.85rem;
-  color: #cbd5e0;
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: #e2e8f0;
 }
 
 /* Barra de stat */
@@ -330,6 +376,7 @@ background-size: cover;
   height: 8px;
   overflow: hidden;
 }
+
 .stat-fill {
   height: 100%;
   background: linear-gradient(90deg, #ff0080, #7928ca, #2afadf);
@@ -344,32 +391,24 @@ background-size: cover;
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-/* Animación al cargar */
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-/* Movimiento flotante suave */
+/* (Opcional) keyframes que ya no usas, los dejo por si acaso */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 @keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
 }
 @keyframes shakeIn {
   0% { transform: scale(0.5) rotate(-5deg); opacity: 0; }
   50% { transform: scale(1.1) rotate(3deg); }
   100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+@media (max-width: 768px) {
+  .modal-body {
+    grid-template-columns: 1fr;
+  }
 }
