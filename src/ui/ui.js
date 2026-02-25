@@ -1,4 +1,4 @@
-/// Función para capitalizar la primera letra de una palabra
+// Función para capitalizar la primera letra de una palabra
 function capitalize(word) {
   return word.charAt(0).toUpperCase() + word.slice(1);
 }
@@ -11,7 +11,8 @@ export function showPokemon(pokemon) {
   img.src = pokemon.sprite;
   img.alt = pokemon.name;
   img.onerror = () => {
-    img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
+    img.onerror = null; // evita loop infinito
+    img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`;
   };
 
   document.getElementById("pokemon-name").textContent = capitalize(pokemon.name);
@@ -35,12 +36,12 @@ export function showPokemon(pokemon) {
 export function showModal(pokemon) {
   document.getElementById("modal-name").textContent = capitalize(pokemon.name);
 
-  // Imagen del modal con fallback también
   const modalImg = document.getElementById("modal-img");
   modalImg.src = pokemon.sprite;
   modalImg.alt = pokemon.name;
   modalImg.onerror = () => {
-    modalImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
+    modalImg.onerror = null; // evita loop infinito
+    modalImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`;
   };
 
   document.getElementById("modal-id").textContent = "#" + pokemon.id.toString().padStart(3, "0");
@@ -66,6 +67,5 @@ export function showModal(pokemon) {
     statsDiv.appendChild(row);
   });
 
-  // Mostrar el modal quitando la clase hidden
   document.getElementById("pokemon-modal").classList.remove("hidden");
 }

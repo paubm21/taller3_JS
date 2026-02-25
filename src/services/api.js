@@ -17,14 +17,8 @@ export async function fetchPokemon(id) {
       base: s.base_stat
     }));
 
-    // Sprite con múltiples fallbacks para asegurar que siempre haya imagen
-    const sprite =
-      data.sprites?.other?.["official-artwork"]?.front_default ||
-      data.sprites?.other?.dream_world?.front_default ||
-      data.sprites?.front_default ||
-      `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`;
-
-    console.log("Sprite cargado:", sprite);
+    // PNG sin fondo oficial
+    const sprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`;
 
     return new Pokemon(
       data.id,
