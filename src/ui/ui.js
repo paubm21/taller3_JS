@@ -11,7 +11,7 @@ export function showPokemon(pokemon) {
   img.src = pokemon.sprite;
   img.alt = pokemon.name;
   img.onerror = () => {
-    img.onerror = null; // evita loop infinito
+    img.onerror = null; 
     img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`;
   };
 
@@ -40,7 +40,7 @@ export function showModal(pokemon) {
   modalImg.src = pokemon.sprite;
   modalImg.alt = pokemon.name;
   modalImg.onerror = () => {
-    modalImg.onerror = null; // evita loop infinito
+    modalImg.onerror = null;
     modalImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`;
   };
 

@@ -16,8 +16,6 @@ export async function fetchPokemon(id) {
       stat: s.stat.name,
       base: s.base_stat
     }));
-
-    // PNG sin fondo oficial
     const sprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`;
 
     return new Pokemon(
