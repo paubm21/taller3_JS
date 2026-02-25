@@ -1,4 +1,4 @@
-// Importamos las funciones necesarias
+// funciones necesarias
 import { fetchPokemon } from "./services/api.js";
 import { showPokemon } from "./ui/ui.js";
 
@@ -14,39 +14,30 @@ async function loadPokemon(id) {
   showPokemon(pokemon);
   return pokemon;
 }
-
 // Carga inicial
 loadPokemon(current);
-
-// ===== FILTROS =====
+//filtros
 const checkboxes = document.querySelectorAll(".filter-types input");
 const clearBtn = document.getElementById("clear-filters");
-
 checkboxes.forEach(cb => {
   cb.addEventListener("change", applyFilters);
 });
-
 clearBtn.addEventListener("click", () => {
   checkboxes.forEach(cb => cb.checked = false);
   filteredIds = null;
   loadPokemon(current);
 });
-
 async function applyFilters() {
-
   const selectedTypes = Array.from(checkboxes)
     .filter(cb => cb.checked)
     .map(cb => cb.value);
-
   // Si no hay filtros activos
   if (selectedTypes.length === 0) {
     filteredIds = null;
     loadPokemon(current);
     return;
   }
-
   filteredIds = [];
-
   // Revisar primeros 151 Pokémon
   for (let i = 1; i <= 151; i++) {
     const pokemon = await fetchPokemon(i);
@@ -75,10 +66,8 @@ const filtersContainer = document.querySelector(".filters");
 toggleBtn.addEventListener("click", () => {
   filtersContainer.classList.toggle("hidden-filters");
 });
-
 // Botón siguiente: avanza al siguiente Pokémon
 document.querySelector(".next").addEventListener("click", () => {
-
   if (filteredIds) {
     filterIndex++;
     if (filterIndex >= filteredIds.length) {
@@ -92,9 +81,8 @@ document.querySelector(".next").addEventListener("click", () => {
 
 });
 
-// Botón anterior: retrocede (mínimo ID 1)
+// Botón anterior
 document.querySelector(".prev").addEventListener("click", () => {
-
   if (filteredIds) {
     filterIndex--;
     if (filterIndex < 0) {
@@ -105,14 +93,11 @@ document.querySelector(".prev").addEventListener("click", () => {
     if (current > 1) current--;
     loadPokemon(current);
   }
-
 });
-
 // Cerrar el modal al hacer clic en la X
 document.getElementById("close-modal").addEventListener("click", () => {
   document.getElementById("pokemon-modal").classList.add("hidden");
 });
-
 // Cerrar el modal al hacer clic fuera del contenido
 document.getElementById("pokemon-modal").addEventListener("click", (e) => {
   if (e.target === document.getElementById("pokemon-modal")) {

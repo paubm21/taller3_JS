@@ -7,7 +7,6 @@ function capitalize(word) {
 export function showPokemon(pokemon) {
   if (!pokemon) return;
 
-  // Imagen con fallback por si official-artwork falla
   const img = document.getElementById("pokemon-img");
   img.src = pokemon.sprite;
   img.alt = pokemon.name;
@@ -18,7 +17,7 @@ export function showPokemon(pokemon) {
   document.getElementById("pokemon-name").textContent = capitalize(pokemon.name);
   document.getElementById("pokemon-id").textContent = "#" + pokemon.id.toString().padStart(3, "0");
 
-  // Tipos: limpiamos y generamos dinámicamente
+  // Tipos
   const typesDiv = document.querySelector(".types");
   typesDiv.innerHTML = "";
   pokemon.types.forEach(t => {
@@ -49,7 +48,6 @@ export function showModal(pokemon) {
   document.getElementById("modal-weight").textContent = pokemon.weight;
   document.getElementById("modal-abilities").textContent = pokemon.abilities.map(capitalize).join(", ");
 
-  // Estadísticas dinámicas
   const statsDiv = document.getElementById("modal-stats");
   statsDiv.innerHTML = "<h3>Estadísticas</h3>";
 

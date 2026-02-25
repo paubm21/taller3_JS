@@ -1,4 +1,4 @@
-/* ===== Reset y base ===== */
+/*Reset y base*/
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +9,7 @@ body {
   /*  fuente bonita global */
   font-family: 'Poppins', sans-serif;
 
-  /* Pueblo Paleta / ruta de Kanto */
+  /* Pueblo Paleta*/
   background-image: url('https://www.pokemon.com/static-assets/content-assets/cms2/img/misc/virtual-backgrounds/masters/city.jpg');
   background-size: cover;
   background-position: center;
@@ -23,7 +23,7 @@ body {
   align-items: center;
 }
 
-/* ===== Contenedor principal ===== */
+/*Contenedor principal*/
 .app {
   display: flex;
   flex-direction: row;
@@ -35,7 +35,7 @@ body {
   flex-wrap: wrap;
 }
 
-/* ===== TÍTULO ===== */
+/*TÍTULO*/
 .title {
   width: 100%;
   text-align: center;
@@ -76,7 +76,7 @@ body {
   }
 }
 
-/* ===== Card principal ===== */
+/* Card principal*/
 .card {
   background: rgba(22, 33, 62, 0.65);
   backdrop-filter: blur(12px);
@@ -99,7 +99,7 @@ body {
   box-shadow: 0 12px 40px rgba(233, 69, 96, 0.5);
 }
 
-/* ===== Imagen del Pokémon ===== */
+/*Imagen del Pokémon*/
 #pokemon-img {
   width: 180px;
   height: 180px;
@@ -113,7 +113,7 @@ body {
   transform: scale(1.1);
 }
 
-/* ===== Nombre e ID ===== */
+/*Nombre e ID*/
 #pokemon-name {
   font-family: 'Luckiest Guy';
   font-size: 1.8rem;
@@ -129,14 +129,13 @@ body {
   letter-spacing: 1px;
 }
 
-/* ===== Tipos ===== */
+/*Tipos*/
 .types {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
   justify-content: center;
 }
-
 /* Estilo base de cada tipo */
 .type {
   padding: 5px 16px;
@@ -146,85 +145,66 @@ body {
   text-transform: capitalize;
   color: #fff;
 }
-
-/* ===== Colores por tipo ===== */
+/*Colores por tipo*/
 .type.normal {
   background: #bdbdbd;
   color: #000;
 }
-
 .type.electric {
   background: #f7d02c;
   color: #000;
 }
-
 .type.fire {
   background: #ee8130;
 }
-
 .type.ground {
   background: #833900;
 }
-
 .type.rock {
   background: #e9d45f;
   color: #000;
 }
-
 .type.water {
   background: #6390f0;
 }
-
 .type.grass {
   background: #7ac74c;
 }
-
 .type.bug {
   background: #729f3f;
 }
-
 .type.flying {
   background: #3dc7ef;
 }
-
 .type.ice {
   background: #9be0ff;
   color: #000;
 }
-
 .type.poison {
   background: #9e0a72;
 }
-
 .type.fairy {
   background: #ff87db;
 }
-
 .type.fighting {
   background: #d33333;
 }
-
 .type.psychic {
   background: #aa0080;
 }
-
 .type.steel {
   background: #616161;
 }
-
 .type.ghost {
   background: #313d70;
 }
-
 .type.dark {
   background: #222222;
 }
-
 .type.dragon {
   background: #3f23bb;
 }
-
-/* ===== Botones de navegación ===== */
+/*Botones de navegación*/
 .nav-buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -232,70 +212,56 @@ body {
   width: 100%;
   margin-top: 10px;
 }
-
 .nav-btn {
   appearance: none;
   border: none;
   border-radius: 14px;
   padding: 12px 16px;
   min-height: 48px;
-  /* tamaño mínimo táctil */
   width: 100%;
   cursor: pointer;
-
   background-color: #e94560;
   color: #fff;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-
   font-size: 1rem;
   font-weight: 700;
   line-height: 1;
-
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
   transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
-
 .nav-btn .icon {
   font-size: 1.2rem;
   font-weight: 900;
   transform: translateY(-1px);
 }
-
 .nav-btn:hover {
   background-color: #c73652;
   transform: translateY(-1px);
   box-shadow: 0 10px 22px rgba(233, 69, 96, 0.35);
 }
-
 .nav-btn:active {
   transform: translateY(0px) scale(0.98);
 }
-
-/* Accesibilidad: foco visible con teclado */
+/* Accesibilidad*/
 .nav-btn:focus-visible {
   outline: 3px solid rgba(247, 208, 44, 0.95);
   outline-offset: 3px;
 }
-
-/* Empuja el “sentido” */
 .nav-btn.prev {
   justify-content: flex-start;
 }
-
 .nav-btn.next {
   justify-content: flex-end;
 }
-
 .nav-buttons button:hover,
 .nav-buttons button:active {
   transform: none;
   box-shadow: none;
 }
-/* ===== MODAL ===== */
+/*MODAL*/
 .modal {
   position: fixed;
   inset: 0;
@@ -306,18 +272,15 @@ body {
   z-index: 999;
   animation: fadeInBg 0.3s ease;
 }
-
 @keyframes fadeInBg {
   from { background: rgba(0,0,0,0); }
   to   { background: rgba(0,0,0,0.65); }
 }
-
 /* Ocultar modal */
 .modal.hidden {
   display: none;
 }
-
-/* ===== MODAL CONTENT ===== */
+/* MODAL CONTENT*/
 .modal-content {
   background: rgba(22, 33, 62, 0.92);
   backdrop-filter: blur(16px);
@@ -331,12 +294,9 @@ body {
   overflow-y: auto;
   position: relative;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 25px;
-
-  /* Entrada con rebote */
   animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -345,7 +305,7 @@ body {
   to   { transform: translateY(0)    scale(1);    opacity: 1; }
 }
 
-/* ===== LAYOUT HORIZONTAL ===== */
+/*LAYOUT HORIZONTAL */
 .modal-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -379,8 +339,7 @@ body {
   from { transform: translateX(20px); opacity: 0; }
   to   { transform: translateX(0);    opacity: 1; }
 }
-
-/* ===== BOTÓN CERRAR ===== */
+/* BOTÓN CERRAR*/
 #close-modal {
   position: absolute;
   top: 14px;
@@ -391,13 +350,11 @@ body {
   transition: color 0.2s, transform 0.3s;
   line-height: 1;
 }
-
 #close-modal:hover {
   color: #e94560;
   transform: rotate(90deg) scale(1.2);
 }
-
-/* ===== TÍTULO DEL MODAL ===== */
+/*TÍTULO DEL MODAL*/
 #modal-name {
   font-family: 'Rubik Wet Paint', cursive;
   font-size: 2.8rem;
@@ -411,10 +368,8 @@ body {
 
   /* Entrada */
   animation: titleDrop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both,
-             titleFloat 3s ease-in-out 0.5s infinite;
+  titleFloat 3s ease-in-out 0.5s infinite;
 }
-
-/* Entrada: cae y rebota */
 @keyframes titleDrop {
   from {
     transform: translateY(-40px) scale(0.7);
@@ -425,14 +380,13 @@ body {
     opacity: 1;
   }
 }
-
 /* Movimiento constante: flota de arriba a abajo */
 @keyframes titleFloat {
   0%   { transform: translateY(0px)   rotate(-1deg); }
   50%  { transform: translateY(-8px)  rotate(1deg);  }
   100% { transform: translateY(0px)   rotate(-1deg); }
 }
-/* ===== IMAGEN ===== */
+/*IMAGEN*/
 #modal-img {
   width: 160px;
   height: 160px;
@@ -440,20 +394,17 @@ body {
   filter: drop-shadow(0 6px 16px rgba(233, 69, 96, 0.5));
   transition: transform 0.3s ease;
 }
-
 #modal-img:hover {
   transform: scale(1.08) rotate(-2deg);
 }
-
-/* ===== ID ===== */
+/*ID*/
 #modal-id {
   font-family: 'Poppins', sans-serif;
   color: #a0aec0;
   letter-spacing: 2px;
   font-size: 0.95rem;
 }
-
-/* ===== INFO: altura, peso, habilidades ===== */
+/*INFO: altura, peso, habilidades*/
 .modal-info {
   width: 100%;
   background: rgba(15, 52, 96, 0.6);
@@ -467,17 +418,13 @@ body {
   font-size: 0.95rem;
   color: #e2e8f0;
 }
-
 .modal-info strong {
   color: #ff4d6d;
   font-weight: 600;
 }
-
-/* ===== STATS ===== */
 .modal-stats {
   width: 100%;
 }
-
 .modal-stats h3 {
   font-family: 'Quintessential', cursive;
   font-size: 1.1rem;
@@ -485,7 +432,6 @@ body {
   margin-bottom: 12px;
   letter-spacing: 1px;
 }
-
 .stat-row {
   display: grid;
   grid-template-columns: 130px 1fr 36px;
@@ -496,22 +442,19 @@ body {
   font-size: 0.82rem;
   color: #cbd5e0;
 }
-
 .stat-bar {
   background: rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   height: 8px;
   overflow: hidden;
 }
-
 .stat-fill {
   height: 100%;
   background: linear-gradient(90deg, #e94560, #b026ff);
   border-radius: 10px;
   transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-
-/* ===== RESPONSIVE ===== */
+/*RESPONSIVE*/
 @media (max-width: 600px) {
   .modal-body {
     grid-template-columns: 1fr;
@@ -534,7 +477,6 @@ body {
   letter-spacing: 0.3px;
   color: #e2e8f0;
 }
-
 /* Barra de stat */
 .stat-bar {
   background: rgba(45, 55, 72, 0.7);
@@ -542,7 +484,6 @@ body {
   height: 8px;
   overflow: hidden;
 }
-
 .stat-fill {
   height: 100%;
   background: linear-gradient(90deg, #ff0080, #7928ca, #2afadf);
@@ -551,7 +492,6 @@ body {
   transition: width 0.5s ease;
   animation: gradientMove 3s ease infinite;
 }
-
 @keyframes gradientMove {
   0% {
     background-position: 0% 50%;
@@ -565,8 +505,6 @@ body {
     background-position: 0% 50%;
   }
 }
-
-/* (Opcional) keyframes que ya no usas, los dejo por si acaso */
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -578,7 +516,6 @@ body {
     transform: translateY(0);
   }
 }
-
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -592,13 +529,11 @@ body {
     transform: translateY(0px);
   }
 }
-
 @keyframes shakeIn {
   0% {
     transform: scale(0.5) rotate(-5deg);
     opacity: 0;
   }
-
   50% {
     transform: scale(1.1) rotate(3deg);
   }
@@ -614,12 +549,11 @@ body {
     grid-template-columns: 1fr;
   }
 }
-/* ===== BOTÓN TOGGLE FILTROS ===== */
+/* BOTÓN TOGGLE FILTROS*/
 .filter-toggle {
   display: none;
 }
-
-/* ===== CONTENEDOR FILTROS ===== */
+/* CONTENEDOR FILTROS */
 .filters {
   align-self: flex-start;
   width: 280px;
@@ -658,8 +592,7 @@ body {
   border-bottom: 1px solid rgba(255,255,255,0.15);
   text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
-
-/* ===== TIPOS (badges) ===== */
+/* TIPOS*/
 .filter-types {
   display: flex;
   flex-wrap: wrap;
@@ -669,8 +602,6 @@ body {
 .filter-option input {
   display: none;
 }
-
-/* Igual que la card: mismo fondo, misma tipografía */
 .filter-option span {
   display: inline-block;
   padding: 7px 16px;
@@ -693,7 +624,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Activo: mismo rojo de los botones de la card */
 .filter-option input:checked + span {
   background: #e94560;
   border-color: #e94560;
@@ -701,8 +631,7 @@ body {
   box-shadow: 0 4px 12px rgba(233, 69, 96, 0.5);
   transform: scale(1.08);
 }
-
-/* ===== BOTÓN LIMPIAR - igual que prev/next ===== */
+/*BOTÓN LIMPIAR*/
 .clear-btn {
   width: 100%;
   border: none;
@@ -717,19 +646,15 @@ body {
   box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4);
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .clear-btn:hover {
   background-color: #c73652;
   transform: scale(1.03);
   box-shadow: 0 6px 18px rgba(233, 69, 96, 0.6);
 }
-
-/* ===== LAYOUT RESPONSIVE ===== */
+/* LAYOUT RESPONSIVE*/
 .card {
   flex-shrink: 0;
 }
-
-
 @media (max-width: 700px) {
   .app {
     flex-direction: column;

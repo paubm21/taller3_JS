@@ -24,7 +24,7 @@ export async function fetchPokemon(id) {
       data.sprites?.front_default ||
       `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`;
 
-    console.log("Sprite cargado:", sprite); // para debug, puedes quitarlo luego
+    console.log("Sprite cargado:", sprite);
 
     return new Pokemon(
       data.id,
