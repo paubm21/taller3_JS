@@ -29,10 +29,30 @@ background-size: cover;
 }
 
 .title {
-  font-size: 2rem;
-  color: #e94560;
+  font-family: "Rubik Wet Paint", system-ui;
+  font-size: 3.6rem;
   letter-spacing: 2px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  text-transform: uppercase;
+  text-align: center;
+
+  /* color principal */
+  color: #111;
+
+  /* contorno claro suave para separar del fondo */
+  -webkit-text-stroke: 6px rgba(255, 255, 255, 0.85);
+
+  /* sombra elegante (no exagerada) */
+  text-shadow:
+    0 10px 25px rgba(0,0,0,0.35),
+    0 2px 0 rgba(255,255,255,0.25);
+
+  /* animación suave */
+  animation: titlePop 700ms cubic-bezier(.2,.9,.2,1) both;
+}
+
+@keyframes titlePop {
+  from { transform: translateY(-18px) scale(0.96); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
 }
 
 /* ===== Card principal ===== */
@@ -127,23 +147,63 @@ background-size: cover;
 
 /* ===== Botones de navegación ===== */
 .nav-buttons {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
+  width: 100%;
   margin-top: 10px;
 }
 
-.nav-buttons button {
+.nav-btn {
+  appearance: none;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 16px;
+  min-height: 48px;           /* tamaño mínimo táctil */
+  width: 100%;
+  cursor: pointer;
+
   background-color: #e94560;
   color: #fff;
-  border: none;
-  padding: 10px 22px;
-  border-radius: 12px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+  display: inline-flex;        /* alinea flecha y texto */
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+  transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.nav-btn .icon {
+  font-size: 1.2rem;
+  font-weight: 900;
+  transform: translateY(-1px);
+}
+
+.nav-btn:hover {
+  background-color: #c73652;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(233, 69, 96, 0.35);
+}
+
+.nav-btn:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+/* Accesibilidad: foco visible con teclado */
+.nav-btn:focus-visible {
+  outline: 3px solid rgba(247, 208, 44, 0.95);
+  outline-offset: 3px;
+}
+
+/* Empuja el “sentido” */
+.nav-btn.prev { justify-content: flex-start; }
+.nav-btn.next { justify-content: flex-end; }
 .nav-buttons button:hover {
   background-color: #c73652;
   transform: scale(1.05);
@@ -278,3 +338,32 @@ background-size: cover;
   transition: width 0.5s ease;
 }
 
+/* Animación al cargar */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Movimiento flotante suave */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes shakeIn {
+  0% { transform: scale(0.5) rotate(-5deg); opacity: 0; }
+  50% { transform: scale(1.1) rotate(3deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}

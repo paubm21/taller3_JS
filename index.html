@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mini Pokédex</title>
-  <link rel="stylesheet" href="./src/css/styles.css" />
+
+  <!-- Fuente manuscrita -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./src/css/styles.css" />
 </head>
 <body>
 
@@ -17,9 +22,16 @@
       <p id="pokemon-id"></p>
       <div class="types"></div>
       <div class="nav-buttons">
-        <button class="prev">← Anterior</button>
-        <button class="next">Siguiente →</button>
-      </div>
+  <button class="nav-btn prev" type="button" aria-label="Ir al Pokémon anterior">
+    <span class="icon" aria-hidden="true">←</span>
+    <span class="label">Anterior</span>
+  </button>
+
+  <button class="nav-btn next" type="button" aria-label="Ir al siguiente Pokémon">
+    <span class="label">Siguiente</span>
+    <span class="icon" aria-hidden="true">→</span>
+  </button>
+</div>
     </div>
   </div>
 
