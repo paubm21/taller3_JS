@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mini Pokédex</title>
 
   <!-- Google Fonts -->
@@ -13,14 +14,61 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
 
   <!-- Fuentes del modal y textos -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="./src/css/styles.css" />
 </head>
+
 <body>
 
   <div class="app">
     <h1 class="title">Mini Pokédex</h1>
+
+    <button id="toggle-filters" class="filter-toggle">
+      🔎 Filtros
+    </button>
+
+    <div class="filters hidden-filters">
+      <h3>Filtrar por tipo</h3>
+
+      <div class="filter-types">
+        <label class="filter-option">
+          <input type="checkbox" value="fire">
+          <span>Fire</span>
+        </label>
+
+        <label class="filter-option">
+          <input type="checkbox" value="water">
+          <span>Water</span>
+        </label>
+
+        <label class="filter-option">
+          <input type="checkbox" value="grass">
+          <span>Grass</span>
+        </label>
+
+        <label class="filter-option">
+          <input type="checkbox" value="electric">
+          <span>Electric</span>
+        </label>
+
+        <label class="filter-option">
+          <input type="checkbox" value="flying">
+          <span>Flying</span>
+        </label>
+
+        <label class="filter-option">
+          <input type="checkbox" value="poison">
+          <span>Poison</span>
+        </label>
+      </div>
+
+      <button id="clear-filters" class="clear-btn">
+        Limpiar filtros
+      </button>
+    </div>
 
     <div class="card">
       <img id="pokemon-img" src="" alt="Pokémon" />
@@ -76,4 +124,5 @@
 
   <script type="module" src="./src/main.js"></script>
 </body>
+
 </html>

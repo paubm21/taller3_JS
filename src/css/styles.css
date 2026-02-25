@@ -6,7 +6,7 @@
 }
 
 body {
-  /* ✅ fuente bonita global */
+  /*  fuente bonita global */
   font-family: 'Poppins', sans-serif;
 
   /* Pueblo Paleta / ruta de Kanto */
@@ -40,29 +40,44 @@ body {
   text-align: center;
 
   /* color principal */
-  color: #111;
+  color: #ffcb05;
 
   /* contorno claro suave para separar del fondo */
-  -webkit-text-stroke: 6px rgba(255, 255, 255, 0.85);
+  -webkit-text-stroke: 6px #2a75bb;
 
   /* sombra elegante */
   text-shadow:
-    0 10px 25px rgba(0,0,0,0.35),
-    0 2px 0 rgba(255,255,255,0.25);
+    0 10px 25px rgba(42, 117, 187, 0.4),
+    0 2px 0 rgba(255, 255, 255, 0.3);
 
-  /* ✅ entra y luego flota SIEMPRE */
-  animation: titlePop 700ms cubic-bezier(.2,.9,.2,1) both, titleFloat 4s ease-in-out infinite;
+  /*  entra y luego flota SIEMPRE */
+  animation: titlePop 700ms cubic-bezier(.2, .9, .2, 1) both, titleFloat 4s ease-in-out infinite;
 }
 
 @keyframes titlePop {
-  from { transform: translateY(-18px) scale(0.96); opacity: 0; }
-  to   { transform: translateY(0) scale(1); opacity: 1; }
+  from {
+    transform: translateY(-18px) scale(0.96);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes titleFloat {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-8px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* ===== Card principal ===== */
@@ -70,9 +85,9 @@ body {
   background: rgba(22, 33, 62, 0.65);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   padding: 40px 50px;
   display: flex;
   flex-direction: column;
@@ -95,7 +110,7 @@ body {
   object-fit: contain;
   cursor: pointer;
   transition: transform 0.3s ease;
-  filter: drop-shadow(0 4px 8px rgba(233,69,96,0.4));
+  filter: drop-shadow(0 4px 8px rgba(233, 69, 96, 0.4));
 }
 
 #pokemon-img:hover {
@@ -104,12 +119,12 @@ body {
 
 /* ===== Nombre e ID ===== */
 #pokemon-name {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Luckiest Guy';
   font-size: 1.8rem;
   font-weight: 700;
   text-transform: capitalize;
   color: #fff;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
 #pokemon-id {
@@ -137,24 +152,81 @@ body {
 }
 
 /* ===== Colores por tipo ===== */
-.type.normal   { background: #bdbdbd; color: #000; }
-.type.electric { background: #f7d02c; color: #000; }
-.type.fire     { background: #ee8130; }
-.type.ground   { background: #833900; }
-.type.rock     { background: #e9d45f; color: #000; }
-.type.water    { background: #6390f0; }
-.type.grass    { background: #7ac74c; }
-.type.bug      { background: #729f3f; }
-.type.flying   { background: #3dc7ef; }
-.type.ice      { background: #9be0ff; color: #000; }
-.type.poison   { background: #9e0a72; }
-.type.fairy    { background: #ff87db; }
-.type.fighting { background: #d33333; }
-.type.psychic  { background: #aa0080; }
-.type.steel    { background: #616161; }
-.type.ghost    { background: #313d70; }
-.type.dark     { background: #222222; }
-.type.dragon   { background: #3f23bb; }
+.type.normal {
+  background: #bdbdbd;
+  color: #000;
+}
+
+.type.electric {
+  background: #f7d02c;
+  color: #000;
+}
+
+.type.fire {
+  background: #ee8130;
+}
+
+.type.ground {
+  background: #833900;
+}
+
+.type.rock {
+  background: #e9d45f;
+  color: #000;
+}
+
+.type.water {
+  background: #6390f0;
+}
+
+.type.grass {
+  background: #7ac74c;
+}
+
+.type.bug {
+  background: #729f3f;
+}
+
+.type.flying {
+  background: #3dc7ef;
+}
+
+.type.ice {
+  background: #9be0ff;
+  color: #000;
+}
+
+.type.poison {
+  background: #9e0a72;
+}
+
+.type.fairy {
+  background: #ff87db;
+}
+
+.type.fighting {
+  background: #d33333;
+}
+
+.type.psychic {
+  background: #aa0080;
+}
+
+.type.steel {
+  background: #616161;
+}
+
+.type.ghost {
+  background: #313d70;
+}
+
+.type.dark {
+  background: #222222;
+}
+
+.type.dragon {
+  background: #3f23bb;
+}
 
 /* ===== Botones de navegación ===== */
 .nav-buttons {
@@ -170,7 +242,8 @@ body {
   border: none;
   border-radius: 14px;
   padding: 12px 16px;
-  min-height: 48px; /* tamaño mínimo táctil */
+  min-height: 48px;
+  /* tamaño mínimo táctil */
   width: 100%;
   cursor: pointer;
 
@@ -186,7 +259,7 @@ body {
   font-weight: 700;
   line-height: 1;
 
-  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
   transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -213,10 +286,14 @@ body {
 }
 
 /* Empuja el “sentido” */
-.nav-btn.prev { justify-content: flex-start; }
-.nav-btn.next { justify-content: flex-end; }
+.nav-btn.prev {
+  justify-content: flex-start;
+}
 
-/* ✅ IMPORTANTE: eliminamos el hover duplicado que peleaba con nav-btn */
+.nav-btn.next {
+  justify-content: flex-end;
+}
+
 .nav-buttons button:hover,
 .nav-buttons button:active {
   transform: none;
@@ -227,7 +304,7 @@ body {
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -244,7 +321,7 @@ body {
 .modal-content {
   background: rgba(22, 33, 62, 0.85);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   padding: 40px;
   width: 800px;
@@ -252,13 +329,14 @@ body {
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   animation: popIn 0.3s ease;
 
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 25px;
 }
+
 /* Contenedor horizontal interno */
 .modal-body {
   display: grid;
@@ -281,9 +359,17 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+
 @keyframes popIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to   { transform: scale(1);   opacity: 1; }
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* Botón cerrar modal */
@@ -302,11 +388,12 @@ body {
 }
 
 #modal-name {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Rethink Sans';
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1px;
   color: #ffffff;
+  text-align: center;
 }
 
 #modal-id {
@@ -319,7 +406,7 @@ body {
   width: 160px;
   height: 160px;
   object-fit: contain;
-  filter: drop-shadow(0 4px 8px rgba(233,69,96,0.4));
+  filter: drop-shadow(0 4px 8px rgba(233, 69, 96, 0.4));
 }
 
 /* Info: altura, peso, habilidades */
@@ -331,8 +418,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
-
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Eczar';
   font-size: 0.95rem;
   color: #e2e8f0;
 }
@@ -348,7 +434,7 @@ body {
 }
 
 .modal-stats h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Quintessential';
   font-size: 1.1rem;
   color: #ff4d6d;
   margin-bottom: 10px;
@@ -361,8 +447,7 @@ body {
   align-items: center;
   gap: 8px;
   margin-bottom: 6px;
-
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Sniglet';
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.3px;
@@ -387,28 +472,192 @@ body {
 }
 
 @keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* (Opcional) keyframes que ya no usas, los dejo por si acaso */
 @keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-40px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
+
 @keyframes shakeIn {
-  0% { transform: scale(0.5) rotate(-5deg); opacity: 0; }
-  50% { transform: scale(1.1) rotate(3deg); }
-  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  0% {
+    transform: scale(0.5) rotate(-5deg);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.1) rotate(3deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
 }
+
 @media (max-width: 768px) {
   .modal-body {
     grid-template-columns: 1fr;
   }
+}
+
+/* ===== BOTÓN TOGGLE FILTROS ===== */
+.filter-toggle {
+  appearance: none;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+
+  background: linear-gradient(135deg, #ff0080, #7928ca);
+  color: #fff;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filter-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(121, 40, 202, 0.4);
+}
+
+/* ===== CONTENEDOR FILTROS ===== */
+.filters {
+  width: 340px;
+  background: rgba(22, 33, 62, 0.75);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  transition: all 0.3s ease;
+}
+
+/* Estado oculto */
+.hidden-filters {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+/* Tipos */
+.filter-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Estilo tipo badge */
+.filter-types label {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.filter-types label:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Checkbox oculto */
+.filter-types input {
+  display: none;
+}
+
+/* Activo */
+.filter-types input:checked + span,
+.filter-types input:checked {
+  background: #e94560;
+}
+
+/* Botón limpiar */
+.clear-btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: #e94560;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.clear-btn:hover {
+  background: #c73652;
+}
+
+/* ===== OPCIONES DE FILTRO ===== */
+.filter-option {
+  cursor: pointer;
+}
+
+.filter-option input {
+  display: none;
+}
+
+.filter-option span {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: rgba(255,255,255,0.08);
+  transition: all 0.2s ease;
+}
+
+/* HOVER */
+.filter-option span:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.05);
+}
+
+/* ACTIVO */
+.filter-option input:checked + span {
+  background: #e94560;
+  box-shadow: 0 0 12px rgba(233,69,96,0.7);
+  transform: scale(1.08);
 }
