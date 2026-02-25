@@ -330,14 +330,20 @@ background-size: cover;
   height: 8px;
   overflow: hidden;
 }
-
 .stat-fill {
   height: 100%;
-  background: linear-gradient(90deg, #e94560, #f7d02c);
+  background: linear-gradient(90deg, #ff0080, #7928ca, #2afadf);
+  background-size: 200% 200%;
   border-radius: 10px;
   transition: width 0.5s ease;
+  animation: gradientMove 3s ease infinite;
 }
 
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 /* Animación al cargar */
 @keyframes fadeInDown {
   from {
